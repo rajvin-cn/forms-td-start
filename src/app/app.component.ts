@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,15 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
+  genders =['male', 'female'];
+
+// alternatively you can also use view child to access form
+@ViewChild('f') signupForm: NgForm;
 
   defaultSelecion: string = "pet";
   suggestUserName() {
     const suggestedName = 'Superuser';
+    this.signupForm.form.patchValue({username:suggestedName });
   }
 
   onSubmit(form: NgForm){

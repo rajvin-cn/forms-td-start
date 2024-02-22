@@ -8,7 +8,7 @@
             <input type="text" id="username" class="form-control"
             ngModel name="username" required>
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input type="email" id="email" class="form-control"
@@ -22,6 +22,13 @@
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
+        </div>
+
+        <div class="radio" *ngFor ="let gender of genders">
+<label for="">
+<input type="radio" name="gender" ngModel [value] ="gender">
+{{gender}}</label>
+
         </div>
         <button class="btn btn-primary" type="submit"  [disabled]="f.invalid">Submit</button>
       </form>
